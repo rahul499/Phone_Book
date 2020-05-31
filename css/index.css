@@ -39,10 +39,10 @@ padding-top:3%
 
 #mydiv {
     position:fixed;
-    top: 30%;
+    top: 33%;
     left: 37%;
     width:60em;
-    height:40em;
+    height:41em;
     margin-top: -9em; 
     margin-left: -15em; 
     border: 1px solid #ccc;
@@ -107,6 +107,27 @@ min-width: 500px;
  border-style:solid; 
  border-collapse:collapse;
 }
+
+  
+  .tablee tr{
+    background: #b8d1f3;
+  }
+  /*  Define the background color for all the ODD background rows  */
+  .tablee tr:nth-child(odd){ 
+    background: #b8d1f3;
+  }
+  /*  Define the background color for all the EVEN background rows  */
+  .tablee tr:nth-child(even){
+    background: #dae5f4;
+  }
+
+<table class="TFtable">
+  <tr><td>Text</td><td>Text</td><td>Text</td></tr>
+  <tr><td>Text</td><td>Text</td><td>Text</td></tr>
+  <tr><td>Text</td><td>Text</td><td>Text</td></tr>
+  <tr><td>Text</td><td>Text</td><td>Text</td></tr>
+</table>
+
 
 td, th {
 padding:12px;
