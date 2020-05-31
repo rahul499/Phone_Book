@@ -55,6 +55,7 @@ header("location:index.php");
 
 .list{
   align-content: center;
+  background-color:#4f3222;
 }
 #mydi {
     position:fixed;
@@ -92,8 +93,8 @@ hr {
   background-color: #4CAF50;
   color: white;
   padding: 18px 40px;
-  margin-right:25px;
-  margin-left:35px;
+  margin-right:55px;
+  margin-left:132px;
   border: 4px black;
   cursor: pointer;
   width: 100%;
@@ -117,7 +118,7 @@ hr {
 }
 
 .registerbtn:hover {
-  opacity:1;
+  opacity:2;
 }
 
 a {
@@ -193,11 +194,11 @@ function home() {
 
     <hr>
 </form>
- <div class="list">
-<ul>
+ <div >
+<ul class="list">
   <center>
     <li class="lib"><button class="registerbtn" name="done">Update</a></li>
-     <li class="lib"><button class="registerbtn" name="del">Delete</a></li>
+     <li class="lib"><button class="registerbtn" name="del">Remove</a></li>
 </a></li> </center>
 </ul>
 </div>
