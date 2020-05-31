@@ -32,15 +32,22 @@ function home1() {
 <link rel="stylesheet" href="css/index.css">
 <style>
 
-td, th {
-padding:12px;
+tr {
+padding:13px;
 border: 3px #2b2b2b solid;
 }
 
+td, th{
+    padding:16px;
+}
+
+.centero{
+      text-align:center;
+}
 .searchterm {
   width: 510px;
-  border: 3px solid #00B4CC;
-  border-right: none;
+  border: 5px solid #00B4CC;
+  
   padding: 10px;
   height: 60px;
   border-radius: 5px 0 0 5px;
@@ -50,16 +57,28 @@ border: 3px #2b2b2b solid;
 
 .uli {
   list-style-type: none;
+  display:table;
   margin: 120px;
   padding: 10px;
   overflow: hidden;
-  background-color: pink;
+  background-color: #b7d7e8;
   margin-top:10px;
+
 }
 
 .lia{
   padding:8px;
   margin-left:30px;
+  color: white;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+
+a{
+    text-decoration:none;
 }
 .registerbtn {
   background-color: #4CAF50;
@@ -69,7 +88,7 @@ border: 3px #2b2b2b solid;
   margin-left:1500px;
   border: 4px black;
   cursor: pointer;
-  width: 200px;
+  width: 250px;
   opacity: 0.9;
 }
 
@@ -79,17 +98,17 @@ border: 3px #2b2b2b solid;
 
 .searchbutton {
   width: 55px;
-  height: 55px;
-  padding:9px 4px;
+  height: 60px;
+  padding:0px 0px;
   margin-top:18px;
-  border: 1px solid #00B4CC;
-  background: pink;
+  border: 2px solid #00B4CC;
+  background: gold;
   text-align: center;
   color: black;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
-  font-size: 35px;
-  top:45%;
+  font-size: 0px;
+  top:50%;
 }
 
 .wrap{
@@ -109,8 +128,8 @@ border: 3px #2b2b2b solid;
 <div class="list">
 <ul style="color:white;">
 <li><img src="images/logo.jpg" style="width:40px; height:40px; padding:2px; margin-right:10px;"></li>
-<li><h2>RM-PhoneBook</h2></li>
-<li><button class="registerbtn" onclick="javascript:home1();">Home</a></li>
+<li><h2  >RM-PhoneBook</h2></li>
+<li><button class="registerbtn" onclick="javascript:home1();" >Home</a></li>
 </ul>
 </div>
 
@@ -149,13 +168,12 @@ $page=ceil($total/$limit);
 
     <form action="" method="GET"> 
       <input type="text" name="search" class="searchterm" placeholder="Who are you looking for?" style="font-size: 20px; color:black;" >
-      <button  class="searchbutton" >
-        <i class="fa fa-search"></i>
+      <button  class="searchbutton" ><img src="images/search.png" style="width:25px; height:20px;" >
       </button>
     </form>
    </div>
 </div><br>
-  <button data-modal-target="#modal" id ="submit" style="margin:15px;">Add Contact</button>
+  <button data-modal-target="#modal" id ="submit" style="margin:15px; font-size:20px; font-family: Impact, Charcoal, sans-serif;">Add Contact</button>
  <div class="modal" id="modal">
     <div class="modal-header">
       <div class="title">Add Contact</div>
@@ -237,11 +255,11 @@ $page=ceil($total/$limit);
 while ($res = mysqli_fetch_array($result)) {
 ?>
 <center>
-      <tr class="text-dark">
+      <tr >
        <h5> 
-        <th width="14%"><?php echo $res['name'] ?></th>
+        <th width="14%" ><?php echo $res['name'] ?></th>
         <th><?php echo $res['dob'] ?></th>
-        <th><?php echo $res['mobile1'] ?></th>
+        <th ><?php echo $res['mobile1'] ?></th>
         <th><a  href="update.php?id=<?php echo $res['number']; ?>" class="text-white"><button data-modal-target="#mod" id="submit">More</button></a></th></h5>
       </tr>
     </center>
@@ -252,18 +270,20 @@ while ($res = mysqli_fetch_array($result)) {
 
     </table><br>
 
+<div class="centero">
+<center>
 <ul class ="uli">
 
-<li class="lia"><a href="?idd=1">First</a></li>
+<li class="lia"><a href="?idd=1" style="color:#622569;"><b>First</b></a></li>
 
 
-<?php if($id > 1) {?> <li class="lia"><a href="?idd=<?php echo ($idd-1) ?>">Previous</a></li> 
+<?php if($idd > 1) {?> <li class="lia"><a href="?idd=<?php echo ($idd-1) ?>" style="color:#622569;"><b>Previous</b></a></li> 
 <?php }?>
  
    <?php
-   for($i=1;$i <= $page;$i++){
+   for($i=1;$i <= 3;$i++){
    ?>
-    <li class="lia"><a href="?idd=<?php echo $i ?>"><?php echo $i;?></a></li>
+    <li class="lia"><a href="?idd=<?php echo $i ?>" style="color:#622569;"><b><?php echo $i;?></b></a></li>
     <?php
    }
     ?>
@@ -271,19 +291,15 @@ while ($res = mysqli_fetch_array($result)) {
   <?php if($idd!=$page)
   //3!=4
   {?> 
-    <li class="lia"><a href="?idd=<?php echo ($idd+1); ?>">Next</a></li>
+    <li class="lia"><a href="?idd=<?php echo ($idd+1); ?>" style="color:#622569;"><B>Next</b></a></li>
   <?php }?>
   
-  <li class="lia"><a href="?idd=<?php echo $page; ?>">Last</a></li>
+  <li class="lia"><a href="?idd=<?php echo $page; ?>" style="color:#622569;"><B>Last</b></a></li>
+
 </ul>
-  </div>
+</center>
 </div>
 </div>
-
-
-
- 
-
+</div>
 
 </body>
-</html>
